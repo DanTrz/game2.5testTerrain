@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ObjectDefinitionResource" load_steps=3 format=3 uid="uid://du2gq2w5rbkxh"]
+
+[ext_resource type="PackedScene" uid="uid://e40uktbvi6qx" path="res://tree_cone_dark_2.tscn" id="1_20ii6"]
+[ext_resource type="Script" path="res://addons/terrabrush/Scripts/EditorResources/ObjectDefinitionResource.cs" id="2_6l8jn"]
+
+[resource]
+script = ExtResource("2_6l8jn")
+Strategy = 1
+ObjectFrequency = 3
+RandomRange = 1.0
+RandomYRotation = false
+ObjectScenes = [ExtResource("1_20ii6")]
+LODList = []
+LODMeshes = []
+UpdateDistanceThreshold = 1.0
+UpdateTimeFrequency = 0.1
+VisualInstanceLayers = 1

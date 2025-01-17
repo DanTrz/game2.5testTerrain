@@ -1,0 +1,147 @@
+[gd_scene load_steps=35 format=3 uid="uid://bsf52tm7hwtmc"]
+
+[ext_resource type="Script" path="res://addons/terrabrush/TerraBrush.cs" id="1_rwsqe"]
+[ext_resource type="Texture2D" uid="uid://delafk406p0df" path="res://SimpleBaseLevel/Heightmap_0_0.res" id="2_5l3i6"]
+[ext_resource type="Script" path="res://addons/terrabrush/Scripts/EditorResources/TextureSetsResource.cs" id="2_t7jvb"]
+[ext_resource type="Texture2D" uid="uid://cuj1qdiiri743" path="res://Textures/2dAssets/heighText48Px.png" id="3_5ej47"]
+[ext_resource type="Script" path="res://addons/terrabrush/Scripts/EditorResources/ZoneResource.cs" id="3_auhrc"]
+[ext_resource type="Texture2D" uid="uid://h3gdn83am2aa" path="res://Textures/2dAssets/normalText48Px.png" id="4_8d5vc"]
+[ext_resource type="Script" path="res://addons/terrabrush/Scripts/EditorResources/ZonesResource.cs" id="4_adxqp"]
+[ext_resource type="Texture2D" uid="uid://v6m3erwv0i3r" path="res://Textures/2dAssets/roughnessText48Px.png" id="5_2gtr1"]
+[ext_resource type="Script" path="res://addons/terrabrush/Scripts/EditorResources/TextureSetResource.cs" id="6_e5pc4"]
+[ext_resource type="Texture2D" uid="uid://bfn6pan3rpqc6" path="res://Textures/2dAssets/grassText48Px.png" id="7_cqr4c"]
+[ext_resource type="Texture2D" uid="uid://bodw3ku371hqy" path="res://SimpleBaseLevel/Splatmap_0_0_0.res" id="7_qlukb"]
+[ext_resource type="Texture2D" uid="uid://c6wm4gng7rmh1" path="res://Textures/2dAssets/waterText48Px.png" id="8_6jeau"]
+[ext_resource type="Texture2D" uid="uid://ctx0hjo4682wh" path="res://Textures/2dAssets/soilText48Px.png" id="8_8wwmd"]
+[ext_resource type="PackedScene" uid="uid://bgl60s3lk782m" path="res://PlayerRPG3D/Character3d.tscn" id="10_hkfc1"]
+[ext_resource type="PackedScene" uid="uid://c1d2pnw5mksms" path="res://SimpleHouse.tscn" id="10_hxoip"]
+[ext_resource type="Script" path="res://addons/terrabrush/Scripts/EditorResources/ObjectDefinitionResource.cs" id="11_lwa41"]
+[ext_resource type="Script" path="res://addons/terrabrush/Scripts/EditorResources/ObjectResource.cs" id="12_4jufv"]
+[ext_resource type="PackedScene" uid="uid://wh7gdclxjvkd" path="res://tree_test_3.tscn" id="13_162ys"]
+[ext_resource type="PackedScene" uid="uid://dwsfg1b8iggy" path="res://Ramp.tscn" id="14_flev8"]
+[ext_resource type="Texture2D" uid="uid://dgw4dw63cj0yc" path="res://SimpleBaseLevel/Object_0_0_0.res" id="15_66tss"]
+[ext_resource type="Texture2D" uid="uid://c1qkau4ujr6tu" path="res://SimpleBaseLevel/Object_0_0_1.res" id="16_rrj01"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8xb7h"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_xra6b"]
+sky_material = SubResource("ProceduralSkyMaterial_8xb7h")
+
+[sub_resource type="Environment" id="Environment_y3glv"]
+background_mode = 2
+sky = SubResource("Sky_xra6b")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_htpb0"]
+script = ExtResource("6_e5pc4")
+Name = "Grass"
+AlbedoTexture = ExtResource("7_cqr4c")
+NormalTexture = ExtResource("4_8d5vc")
+RoughnessTexture = ExtResource("5_2gtr1")
+HeightTexture = ExtResource("3_5ej47")
+TextureDetail = -1
+
+[sub_resource type="Resource" id="Resource_eoq36"]
+script = ExtResource("6_e5pc4")
+Name = "Water"
+AlbedoTexture = ExtResource("8_6jeau")
+NormalTexture = ExtResource("4_8d5vc")
+RoughnessTexture = ExtResource("5_2gtr1")
+HeightTexture = ExtResource("3_5ej47")
+TextureDetail = -1
+
+[sub_resource type="Resource" id="Resource_mw733"]
+script = ExtResource("6_e5pc4")
+Name = "White"
+AlbedoTexture = ExtResource("8_8wwmd")
+NormalTexture = ExtResource("4_8d5vc")
+RoughnessTexture = ExtResource("5_2gtr1")
+HeightTexture = ExtResource("3_5ej47")
+TextureDetail = -1
+
+[sub_resource type="Resource" id="Resource_b5e1l"]
+script = ExtResource("2_t7jvb")
+TextureSets = [SubResource("Resource_htpb0"), SubResource("Resource_eoq36"), SubResource("Resource_mw733")]
+
+[sub_resource type="Resource" id="Resource_5ksww"]
+script = ExtResource("11_lwa41")
+Strategy = 1
+ObjectFrequency = 0
+RandomRange = 0.0
+RandomYRotation = false
+ObjectScenes = [ExtResource("10_hxoip")]
+LODList = null
+LODMeshes = null
+UpdateDistanceThreshold = 1.0
+UpdateTimeFrequency = 0.1
+VisualInstanceLayers = 1
+
+[sub_resource type="Resource" id="Resource_s2hmj"]
+script = ExtResource("12_4jufv")
+Definition = SubResource("Resource_5ksww")
+Hide = false
+
+[sub_resource type="Resource" id="Resource_ndwre"]
+script = ExtResource("11_lwa41")
+Strategy = 1
+ObjectFrequency = 0
+RandomRange = 1.0
+RandomYRotation = false
+ObjectScenes = [ExtResource("13_162ys")]
+LODList = null
+LODMeshes = null
+UpdateDistanceThreshold = 1.0
+UpdateTimeFrequency = 0.1
+VisualInstanceLayers = 1
+
+[sub_resource type="Resource" id="Resource_pbv8m"]
+script = ExtResource("12_4jufv")
+Definition = SubResource("Resource_ndwre")
+Hide = false
+
+[sub_resource type="Resource" id="Resource_k7mio"]
+script = ExtResource("3_auhrc")
+ZonePosition = Vector2i(0, 0)
+HeightMapTexture = ExtResource("2_5l3i6")
+SplatmapsTexture = [ExtResource("7_qlukb")]
+FoliagesTexture = null
+ObjectsTexture = [ExtResource("15_66tss"), ExtResource("16_rrj01")]
+
+[sub_resource type="Resource" id="Resource_21fob"]
+script = ExtResource("4_adxqp")
+Zones = [SubResource("Resource_k7mio")]
+
+[node name="SimpleBaseLevel" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y3glv")
+
+[node name="TerraBrush" type="Node3D" parent="."]
+script = ExtResource("1_rwsqe")
+ZonesSize = 64
+DataPath = "res://SimpleBaseLevel"
+LODInitialCellWidth = 0.5
+TextureSets = SubResource("Resource_b5e1l")
+TextureDetail = 50
+NearestTextureFilter = true
+Objects = [SubResource("Resource_s2hmj"), SubResource("Resource_pbv8m")]
+TerrainZones = SubResource("Resource_21fob")
+metadata/_edit_lock_ = true
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("10_hkfc1")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.14024, 4.05607, 28.3051)
+wall_min_slide_angle = 0.785398
+floor_max_angle = 0.523599
+
+[node name="Camera3D2" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819151, 0, -0.819151, 0.573576, 0, 8, 5)
+
+[node name="Ramp" parent="." instance=ExtResource("14_flev8")]
+transform = Transform3D(0.179987, -0.983669, 0, 0.983669, 0.179987, 0, 0, 0, 1, -3.707, 0.9, 24.64)

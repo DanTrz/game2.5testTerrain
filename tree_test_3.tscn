@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://wh7gdclxjvkd"]
+
+[ext_resource type="Texture2D" uid="uid://b7q5ymorfyjaa" path="res://Textures/2dAssets/Tree.png" id="1_bq1g3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ry6ug"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4ksf2"]
+material = SubResource("StandardMaterial3D_ry6ug")
+top_radius = 0.1
+bottom_radius = 0.2
+height = 0.7
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hscs5"]
+points = PackedVector3Array(-0.0884844, -0.241799, -0.179144, 0.0553689, 0.243041, 0.192086, 0.077996, 0.242556, 0.184094, 0.0553689, -0.243041, 0.192086, 0.193127, -0.244395, -0.0512286, 0.0703294, 0.242223, -0.187013, -0.195873, 0.243882, 0.0403023, -0.163388, -0.240832, 0.115033, 0.192085, 0.243088, 0.0553731, -0.133491, 0.241259, -0.1486, -0.18844, -0.244062, -0.0663528, -0.095783, 0.241171, 0.175508, 0.0703294, -0.242223, -0.187013, 0.168245, -0.241595, 0.107865, 0.160744, 0.241649, -0.118603, -0.0512079, -0.244354, 0.193132, -0.0433266, 0.242855, -0.195113, -0.18844, 0.244062, -0.0663528, 0.131754, -0.243853, -0.150181, 0.193136, 0.244407, -0.0511928, -0.195873, -0.243882, 0.0403023, -0.163388, 0.240832, 0.115033, 0.168245, 0.241595, 0.107865, -0.148584, -0.241261, -0.133508, 0.10785, -0.241555, 0.168254, 0.0402976, -0.243811, -0.195874, 0.192085, -0.243088, 0.0553731, -0.0512079, 0.244354, 0.193132, -0.118594, -0.241661, 0.160751, -0.0433266, -0.242855, -0.195113, 0.175519, -0.241184, -0.0957653, 0.115045, 0.240848, -0.163379)
+
+[node name="TreeTest3" type="Sprite3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.70972, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_bq1g3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129151, -0.79393, 0.24662)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0707549, 0)
+mesh = SubResource("CylinderMesh_4ksf2")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_hscs5")
